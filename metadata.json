@@ -1,0 +1,5 @@
+{
+  "name": "AI Tutor Pro",
+  "description": "An AI-powered homework helper and tutor with daily limits and premium features.",
+  "requestFramePermissions": ["camera"]
+}

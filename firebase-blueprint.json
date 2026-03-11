@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with usage limits and premium status.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "isPremium": { "type": "boolean" },
+        "questionsAskedToday": { "type": "integer" },
+        "questionsWrittenToday": { "type": "integer" },
+        "photosUploadedToday": { "type": "integer" },
+        "lastResetDate": { "type": "string", "format": "date" }
+      },
+      "required": ["uid", "email", "isPremium"]
+    },
+    "Question": {
+      "title": "Question",
+      "description": "A question asked by a user and its AI response.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "question": { "type": "string" },
+        "answer": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "question", "answer", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile data."
+    },
+    "/questions/{questionId}": {
+      "schema": "Question",
+      "description": "History of questions asked."
+    }
+  }
+}
